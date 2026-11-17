@@ -1,5 +1,5 @@
 import axios from 'axios'
-const serverUrl = 'http://localhost:5000/api'
+const serverUrl = 'https://chatflow-gwxx.onrender.com/api'
 
 export const getme = async () => {
     try {
