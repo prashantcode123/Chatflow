@@ -13,7 +13,7 @@ app.get("/", (req,res)=>{
 app.use(cookieParser())
 app.use(experss.json())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://chatflow-1-c5fh.onrender.com",
     credentials: true
 }))
 
