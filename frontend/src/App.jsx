@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Register from './pages/register.jsx'
+import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import getCurrentUser from './hooks/getCurrentUser.jsx'
 import { useDispatch, useSelector } from 'react-redux'
