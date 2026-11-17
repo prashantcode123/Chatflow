@@ -4,7 +4,7 @@ import { FaceSlightlySmiling, ImagePlus, MoveLeft, Send } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSelectedUser } from '../redux/userSlice'
 import EmojiPicker from 'emoji-picker-react';
-import SenderMessage from './senderMessage'
+import SenderMessage from './SenderMessage'
 import ReceiverMessage from './ReceiverMessage'
 import { sendMessage } from '../service/messages.api'
 import { setMessages } from '../redux/messageSlice'
