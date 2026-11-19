@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     if (userData) {
-      const socket = io("http://localhost:5000", {
+      const socket = io("https://chatflow-gwxx.onrender.com", {
         query: {
           userId: userData?._id
         },
