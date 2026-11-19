@@ -41,7 +41,7 @@ export const logout = async () => {
 
         const data = await res.data.success
 
-        return data.user
+        return data.user.success
     } catch (err) {
         console.log(err.message)
     }
