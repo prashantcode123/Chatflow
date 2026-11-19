@@ -14,15 +14,24 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = await login(email, password)
-    if (data) {
-      dispatch(setUserData(data.user))
-      navigate("/")
-      setEmail("")
-      setPassword("")
+  e.preventDefault();
+
+  try {
+    const data = await login(email, password);
+
+    if (data && data.user) {
+      dispatch(setUserData(data.user));
+
+      setEmail("");
+      setPassword("");
+
+      navigate("/", { replace: true });
     }
+
+  } catch (error) {
+    console.log("Login error:", error);
   }
+};
 
   return (
     <div className='bg-blue-100 w-full h-screen flex justify-center items-center'>
