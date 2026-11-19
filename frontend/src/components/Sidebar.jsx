@@ -150,7 +150,8 @@ const Sidebar = () => {
                 onClick={async () => {
                     await logout()
                     navigate("/login")
-                    window.location.reload()
+                    dispatch(setUserData(null))
+                    dispatch(setOtherUsers(null))
                 }}
                 className='rotate-180 cursor-pointer absolute bottom-6 left-4 bg-blue-400 text-gray-50 p-4 rounded-full outline-none shadow-2xl shadow-gray-600'>
                 <LogOut />
