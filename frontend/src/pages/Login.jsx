@@ -18,7 +18,6 @@ const Login = () => {
     const data = await login(email, password)
     if (data) {
       dispatch(setUserData(data.user))
-      window.location.reload()
       navigate("/")
       setEmail("")
       setPassword("")
