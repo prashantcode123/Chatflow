@@ -39,7 +39,7 @@ export const logout = async () => {
             withCredentials: true
         })
 
-        const data = await res.data.success
+        const data = await res.data
 
         return data.success
     } catch (err) {
