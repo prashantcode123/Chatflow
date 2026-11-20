@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import dp from '../../public/empty_dp.png'
 import { LogOut, Search, X } from 'lucide-react'
 import { logout } from '../service/auth.api'
-import { setSearchData, setSelectedUser } from '../redux/userSlice'
+import { setOtherUsers, setSearchData, setSelectedUser, setUserData } from '../redux/userSlice'
 import { searchUsersApi } from '../service/user.api.js'
-import { setUserData, setOtherUsers } from '../redux/userSlice'
 
 const Sidebar = () => {
 
