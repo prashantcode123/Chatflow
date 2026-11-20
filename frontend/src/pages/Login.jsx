@@ -22,10 +22,14 @@ const Login = () => {
     if (data && data.user) {
       dispatch(setUserData(data.user));
 
-      setEmail("");
-      setPassword("");
+      console.log("2. Redux updated:", data.user);
 
       navigate("/", { replace: true });
+
+      console.log("3. Navigate executed");
+
+      setEmail("");
+      setPassword("");
     }
 
   } catch (error) {
