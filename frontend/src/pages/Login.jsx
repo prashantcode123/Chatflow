@@ -16,26 +16,29 @@ const Login = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
+  console.log("1. Submit function called");
+
   try {
+    console.log("2. Calling login API");
+
     const data = await login(email, password);
 
-    if (data && data.user) {
+    console.log("3. API response:", data);
+
+    if (data?.user) {
       dispatch(setUserData(data.user));
 
-      console.log("2. Redux updated:", data.user);
+      console.log("4. Redux updated");
 
       navigate("/", { replace: true });
 
-      console.log("3. Navigate executed");
-
-      setEmail("");
-      setPassword("");
+      console.log("5. Navigation executed");
+    } else {
+      console.log("User data missing!");
     }
 
-    navigate("/", { replace: true });
-
   } catch (error) {
-    console.log("Login error:", error);
+    console.error("Login error:", error);
   }
 };
 
