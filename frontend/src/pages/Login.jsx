@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUserData } from '../redux/userSlice'
 
 const Login = () => {
- console.log("Login component rendered");
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
@@ -15,28 +14,17 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-    console.log("FORM SUBMITTED");
-
-  console.log("1. Submit function called");
 
   try {
-    console.log("2. Calling login API");
 
     const data = await login(email, password);
 
-    console.log("3. API response:", data);
-
-    if (data?.user) {
-      dispatch(setUserData(data.user));
-
-      console.log("4. Redux updated");
-
-      navigate("/", { replace: true });
-
-      console.log("5. Navigation executed");
-    } else {
-      console.log("User data missing!");
-    }
+    if (data?._id) {
+     dispatch(setUserData(data));
+     setEmail("");
+     setPassword("");
+     navigate("/", { replace: true });
+   }
 
   } catch (error) {
     console.error("Login error:", error);
