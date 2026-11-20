@@ -96,9 +96,11 @@ const MessageArea = () => {
               value={inputMessage}
               type="text" placeholder='Message...' className='flex-1 p-2 outline-none text-lg md:text-xl' />
             <ImagePlus onClick={e => image.current.click()} className='cursor-pointer' />
-            {inputMessage.length>0 && <button>
-              <Send className='cursor-pointer' />
-              </button>}
+            {if(inputMessage.length>0 || frontendImage){ 
+              return (<button>
+                        <Send className='cursor-pointer' />
+                      </button>)
+            }
           </form>
           {showEmojiPicker && <div className='absolute bottom-[110%] left-[20px] md:left-[50px] z-50'>
             <EmojiPicker onEmojiClick={onEmojiClick} width={250} height={300} />
