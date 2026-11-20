@@ -12,7 +12,7 @@ const getOtherUsers = () => {
         dispatch(setOtherUsers(data))
       }
       fetchUser()
-    }, [])
+    }, [userData])
 }
 
 export default getOtherUsers
