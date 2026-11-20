@@ -32,6 +32,8 @@ const Login = () => {
       setPassword("");
     }
 
+    navigate("/", { replace: true });
+
   } catch (error) {
     console.log("Login error:", error);
   }
