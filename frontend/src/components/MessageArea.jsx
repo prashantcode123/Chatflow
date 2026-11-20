@@ -33,23 +33,27 @@ const MessageArea = () => {
   }
 
   const handleSendMessage = async (e) => {
-    e.preventDefault()
-    if(inputMessage.length == 0){
-      return null
-    }
-    let formData = new FormData()
-    formData.append("message", inputMessage)
+    e.preventDefault();
+
+    if (!inputMessage.trim() && !backendImage) return;
+
+    const formData = new FormData();
+    formData.append("message", inputMessage);
+
     if (backendImage) {
-      formData.append("image", backendImage)
+        formData.append("image", backendImage);
     }
 
-    const data = await sendMessage(formData, selectedUser._id)
-    dispatch(setMessages([...messages, data]))
+    const data = await sendMessage(formData, selectedUser._id);
 
-    setInputMessage('')
-    setFrontendImage(null)
-    setBackendImage(null)
-  }
+    if (data) {
+        dispatch(addMessage(data));
+    }
+
+    setInputMessage("");
+    setFrontendImage(null);
+    setBackendImage(null);
+};
 
   useEffect(() => {
     if (!socket) return;
