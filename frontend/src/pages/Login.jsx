@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUserData } from '../redux/userSlice'
 
 const Login = () => {
-
+ console.log("Login component rendered");
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
@@ -15,6 +15,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+    console.log("FORM SUBMITTED");
 
   console.log("1. Submit function called");
 
