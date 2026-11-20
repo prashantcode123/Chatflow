@@ -32,11 +32,11 @@ export const sendMessage = async (req, res) => {
             await conversation.save()
         }
 
-        const receiverSocketId = getReceiverSocketId(receiver)
+        const receiverSocketIds = getReceiverSocketIds(receiver);
 
-        if(receiverSocketId){
-            io.to(receiverSocketId).emit("newMessage", newMessage);
-        }
+        receiverSocketIds.forEach((socketId) => {
+            io.to(socketId).emit("newMessage", newMessage);
+        });
 
         return res.status(201).json(newMessage)
     } catch (err) {
