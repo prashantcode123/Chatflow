@@ -6,6 +6,7 @@ import { LogOut, Search, X } from 'lucide-react'
 import { logout } from '../service/auth.api'
 import { setSearchData, setSelectedUser } from '../redux/userSlice'
 import { searchUsersApi } from '../service/user.api.js'
+import { setUserData, setOtherUsers } from '../redux/userSlice'
 
 const Sidebar = () => {
 
@@ -149,7 +150,6 @@ const Sidebar = () => {
             <button
                 onClick={async () => {     
                      const success = await logout();
-                    console.log(success);
                     if (success) {
                        dispatch(setUserData(null));
                        dispatch(setOtherUsers(null));
