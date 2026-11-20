@@ -1,7 +1,7 @@
 import conversationModel from "../models/conversation.model.js"
 import messageModel from "../models/message.model.js"
 import { uploadImage } from '../service/cloudinary.js'
-import { getReceiverSocketId, io } from "../socket/socket.js"
+import { getReceiverSocketIds, io } from "../socket/socket.js";
 
 export const sendMessage = async (req, res) => {
     try {
