@@ -7,7 +7,7 @@ import EmojiPicker from 'emoji-picker-react';
 import SenderMessage from './SenderMessage'
 import ReceiverMessage from './ReceiverMessage'
 import { sendMessage } from '../service/messages.api'
-import { setMessages } from '../redux/messageSlice'
+import { setMessages, addMessage } from '../redux/messageSlice';
 import { useEffect } from 'react'
 
 const MessageArea = () => {
@@ -52,12 +52,19 @@ const MessageArea = () => {
   }
 
   useEffect(() => {
-    socket.on("newMessage", (mess) => { 
-      dispatch(setMessages([...messages,mess]))
-     })
+    if (!socket) return;
 
-     return ()=>socket.off("newMessage")
-  }, [messages, setMessages])
+    const handleNewMessage = (mess) => {
+        console.log("Received message:", mess);
+        dispatch(addMessage(mess));
+    };
+
+    socket.on("newMessage", handleNewMessage);
+
+    return () => {
+        socket.off("newMessage", handleNewMessage);
+    };
+}, [socket, dispatch]);
   
 
   return (
