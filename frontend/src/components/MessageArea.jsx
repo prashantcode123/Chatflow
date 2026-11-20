@@ -59,7 +59,6 @@ const MessageArea = () => {
     if (!socket) return;
 
     const handleNewMessage = (mess) => {
-        console.log("Received message:", mess);
         dispatch(addMessage(mess));
     };
 
