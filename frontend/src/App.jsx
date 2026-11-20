@@ -23,7 +23,6 @@ const App = () => {
         query: {
           userId: userData?._id
         },
-        autoConnect: false,
         withCredentials: true
       })
 
