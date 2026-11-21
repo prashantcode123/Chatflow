@@ -13,7 +13,7 @@ export const register = async (username, email, password) => {
 
         return data
     } catch (err) {
-        console.log(err.message)
+        alert(err.response.data.message)
     }
 }
 
