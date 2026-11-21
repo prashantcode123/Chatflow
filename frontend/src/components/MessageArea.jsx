@@ -86,7 +86,7 @@ const MessageArea = () => {
         <h2 className='text-xl md:text-2xl font-semibold text-gray-800'>start your chats...</h2>
       </div>}
 
-      {selectedUser && <div className='w-full h-[75%] md:h-[80%]'>
+      {selectedUser && <div className='w-full h-[80%]'>
         <div className='z-30 absolute bottom-5 md:bottom-5 w-full flex justify-center text-gray-800 p-2'>
           <input type="file" className='hidden' accept='image/*' ref={image} onChange={handleImage} />
           <form onSubmit={handleSendMessage} className='flex p-2 md:p-2.5 gap-[10px] rounded-3xl items-center w-full lg:w-[70%] border-2 border-blue-500 bg-gray-50 shadow-2xl shadow-gray-500'>
