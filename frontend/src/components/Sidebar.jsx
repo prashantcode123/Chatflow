@@ -113,7 +113,10 @@ const Sidebar = () => {
                                         alt="Active user"
                                     />
                                 </div>
+                               <div className='leading-3 self-start'>
                                 <h2 className='text-2xl text-gray-800 font-semibold tracking-wide'>{user.username}</h2>
+                                <p className='text-gray-600'>{user.name}</p>
+                            </div>
                             </div>
                         )
                     })}
@@ -138,7 +141,7 @@ const Sidebar = () => {
                             </div>
                             <div className='leading-3 self-start'>
                                 <h2 className='text-2xl text-gray-800 font-semibold tracking-wide'>{user.username}</h2>
-                                <p className='text-gray-600 '>{user.name}</p>
+                                <p className='text-gray-600 text-md pl-1'>{user.name}</p>
                             </div>
                         </div>
                     )

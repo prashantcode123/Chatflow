@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import experss from 'express'
 import authRouter from './routes/auth.route.js'
 import userRouter from './routes/user.route.js'
@@ -7,7 +9,6 @@ import cors from 'cors'
 import { app } from './socket/socket.js';
 import dotenv from 'dotenv'
 dotenv.config()
-
 
 app.get("/", (req,res)=>{
     res.send("server is live")

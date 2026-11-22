@@ -19,27 +19,33 @@ const App = () => {
 
   useEffect(() => {
     if (userData) {
-      const socket = io(import.meta.env.MODE == "production"
-        ? import.meta.env.VITE_SERVER_URL : "http://localhost:5000", {
-        query: {
-          userId: userData?._id
-        },
-        withCredentials: true
-      })
 
-      dispatch(setSocket(socket))
+      const socket = io(
+        import.meta.env.MODE === "production"
+          ? import.meta.env.VITE_SERVER_URL
+          : "http://localhost:5000",
+        {
+          query: {
+            userId: userData._id
+          },
+          withCredentials: true,
+          transports: ["polling", "websocket"]
+
+        }
+      );
+
+      dispatch(setSocket(socket));
 
       socket.on("getOnlineUsers", (users) => {
-        dispatch(setOnlineUsers(users))
-      })
-      return () => { socket.close() }
-    } else {
-      if (socket) {
-        socket.close()
-        dispatch(setSocket(null))
-      }
+        dispatch(setOnlineUsers(users));
+      });
+
+      return () => {
+        socket.disconnect();
+        dispatch(setSocket(null));
+      };
     }
-  }, [userData])
+  }, [userData?._id, dispatch]);
 
 
 
