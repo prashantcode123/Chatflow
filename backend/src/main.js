@@ -7,8 +7,6 @@ import messageRouter from './routes/message.route.js'
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { app } from './socket/socket.js';
-import dotenv from 'dotenv'
-dotenv.config()
 
 app.get("/", (req,res)=>{
     res.send("server is live")

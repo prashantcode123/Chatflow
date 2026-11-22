@@ -25,9 +25,6 @@ export const getReceiverSocketIds = (userId) => {
 io.on("connection", (socket) => {
     const userId = socket.handshake.query.userId;
 
-    console.log("Socket connected:", socket.id);
-    console.log("User ID:", userId);
-
     if (userId) {
         if (!userSocketMap[userId]) {
             userSocketMap[userId] = new Set();
@@ -42,7 +39,6 @@ io.on("connection", (socket) => {
     );
 
     socket.on("disconnect", () => {
-        console.log("Socket disconnected:", socket.id);
 
         if (userId && userSocketMap[userId]) {
             userSocketMap[userId].delete(socket.id);
