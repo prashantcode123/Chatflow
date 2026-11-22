@@ -50,6 +50,9 @@ const MessageArea = () => {
         dispatch(addMessage(data));
     }
 
+    console.log("Current messages:", messages);
+console.log("New message:", data);
+
     setInputMessage("");
     setFrontendImage(null);
     setBackendImage(null);
