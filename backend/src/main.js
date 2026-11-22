@@ -5,6 +5,8 @@ import messageRouter from './routes/message.route.js'
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { app } from './socket/socket.js';
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 app.get("/", (req,res)=>{
@@ -13,7 +15,7 @@ app.get("/", (req,res)=>{
 app.use(cookieParser())
 app.use(experss.json())
 app.use(cors({
-    origin: "https://chatflow-1-c5fh.onrender.com",
+    origin: process.env.MODE == "production" ? process.env.CLIENT_URL : "http://localhost:5173",
     credentials: true
 }))
 

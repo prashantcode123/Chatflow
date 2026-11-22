@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
     cors: {
-        origin: "https://chatflow-1-c5fh.onrender.com",
+        origin: process.env.MODE == "production" ? process.env.CLIENT_URL : "http://localhost:5173",
         methods: ["GET", "POST"],
         credentials: true
     }

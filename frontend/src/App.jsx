@@ -19,7 +19,8 @@ const App = () => {
 
   useEffect(() => {
     if (userData) {
-      const socket = io("https://chatflow-gwxx.onrender.com", {
+      const socket = io(import.meta.env.MODE == "production"
+        ? import.meta.env.VITE_SERVER_URL : "http://localhost:5000", {
         query: {
           userId: userData?._id
         },

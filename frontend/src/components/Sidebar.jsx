@@ -123,12 +123,12 @@ const Sidebar = () => {
             </div>
 
             {/* Users List */}
-            <div className='w-full overflow-y-auto h-[70%] md:h-[68%] p-4 mt-4 flex flex-col gap-4'>
+            <div className='w-full overflow-y-auto h-[70%] md:h-[68%] p-4 mt-4 flex flex-col gap-5'>
                 {otherUsers?.map((user, idx) => {
                     return (
                         <div
                             onClick={() => { dispatch(setSelectedUser(user)) }}
-                            key={idx} className='w-full rounded-3xl bg-gray-50 shadow-2xl shadow-gray-500 flex items-center gap-[1rem] cursor-pointer md:hover:scale-[102%]'>
+                            key={idx} className='w-full rounded-3xl bg-gray-50 shadow-2xl shadow-gray-500 flex items-center gap-[0.5rem] cursor-pointer md:hover:scale-[102%]'>
                             <div className="rounded-full bg-white">
                                 <img
                                     className="w-[55px] h-[55px] rounded-full object-cover shadow-xl"
@@ -136,7 +136,10 @@ const Sidebar = () => {
                                     alt="Active user"
                                 />
                             </div>
-                            <h2 className='text-2xl text-gray-800 font-semibold tracking-wide'>{user.username}</h2>
+                            <div className='leading-3 self-start'>
+                                <h2 className='text-2xl text-gray-800 font-semibold tracking-wide'>{user.username}</h2>
+                                <p className='text-gray-600 '>{user.name}</p>
+                            </div>
                         </div>
                     )
                 })}
