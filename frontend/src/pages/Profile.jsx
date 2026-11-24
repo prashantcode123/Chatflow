@@ -7,6 +7,7 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { updateProfile } from '../service/user.api.js'
 import { setUserData } from '../redux/userSlice'
+import DeleteModal from '../components/deleteModal.jsx'
 
 const Profile = () => {
   let { userData } = useSelector(state => state.user)
@@ -15,6 +16,7 @@ const Profile = () => {
   const [frontendImage, setFrontendImage] = useState(userData.image || dp)
   const [backendImage, setbackendImage] = useState(null)
   const [save, setSave] = useState(false)
+  const [modalShow, setModalShow] = useState(false)
   let image = useRef()
   let dispatch = useDispatch()
 
@@ -47,6 +49,11 @@ const Profile = () => {
 
   return (
     <div className='w-full h-screen bg-blue-100 flex justify-center items-center'>
+
+      {modalShow && <div className={`w-full h-screen absolute z-50`}>
+        <DeleteModal setModal={setModalShow} />
+      </div>}
+      
       <div className='relative w-full max-w-[550px] h-[650px] bg-white rounded-xl shadow-2xl shadow-gray-400 flex flex-col justify-start items-center gap-[10px]'>
 
         <MoveLeft onClick={() => { navigate("/") }} className='absolute left-4 top-2 text-gray-600 cursor-pointer z-10' />
@@ -73,10 +80,19 @@ const Profile = () => {
               type="text" readOnly value={userData.email} />
           </div>
 
-          <button
-            className='bg-blue-500 tracking-wide text-white font-semibold text-xl cursor-pointer px-6 py-2 rounded-lg active:scale-95'>
-            {save ? "Saving..." : "Save"}
-          </button>
+          <div className='mt-2 flex self-end gap-[20px] pr-[20px] md:pr-[30px]'>
+            <button
+              className='bg-blue-500 tracking-wide text-white font-semibold text-xl cursor-pointer px-6 py-2 rounded-lg active:scale-95'>
+              {save ? "Saving..." : "Save"}
+            </button>
+            <button 
+            onClick={(e) => {
+              e.preventDefault() 
+              setModalShow(true) }}
+            className='bg-red-500 tracking-wide text-white font-semibold text-xl cursor-pointer px-6 py-2 rounded-lg active:scale-95'>
+              Delete Account
+            </button>
+          </div>
         </form>
       </div>
     </div>

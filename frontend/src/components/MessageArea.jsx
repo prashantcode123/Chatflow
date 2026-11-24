@@ -9,6 +9,7 @@ import ReceiverMessage from './ReceiverMessage'
 import { sendMessage } from '../service/messages.api'
 import { setMessages, addMessage } from '../redux/messageSlice';
 import { useEffect } from 'react'
+import { useSocket } from '../App'
 
 const MessageArea = () => {
 

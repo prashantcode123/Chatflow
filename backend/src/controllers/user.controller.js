@@ -71,3 +71,20 @@ export const searchUser = async (req, res) => {
         })
     }
 }
+
+export const deleteUser = async (req, res) => {
+    try {
+        const user = await userModel.findByIdAndDelete({ _id: req.userId })
+
+        if(!user){
+            return res.status(400).json({
+                message : "user not found"
+            })
+        }
+    }catch(err){
+        return res.status(500).json({
+            message: "server error : " + err.message
+        })
+    }
+
+}

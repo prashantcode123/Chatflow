@@ -1,5 +1,5 @@
 import axios from 'axios'
-const serverUrl = import.meta.env.MODE == "production" ?  `${import.meta.env.VITE_SERVER_URL}/api` : 'http://localhost:5000/api'
+const serverUrl = import.meta.env.MODE == "production" ? `${import.meta.env.VITE_SERVER_URL}/api` : 'http://localhost:5000/api'
 
 export const getme = async () => {
     try {
@@ -17,7 +17,7 @@ export const getme = async () => {
 
 export const updateProfile = async (formdata) => {
     try {
-        const res = await axios.patch(serverUrl + "/user/profile", formdata, {withCredentials: true})
+        const res = await axios.patch(serverUrl + "/user/profile", formdata, { withCredentials: true })
 
         const data = res.data.user
 
@@ -27,20 +27,29 @@ export const updateProfile = async (formdata) => {
     }
 }
 
-export const OtherUsers = async() =>{
-    try{
-        const res = await axios.get(serverUrl + "/user/otherusers", {withCredentials: true})
+export const OtherUsers = async () => {
+    try {
+        const res = await axios.get(serverUrl + "/user/otherusers", { withCredentials: true })
         return res.data.otherUsers
-    }catch(err){
+    } catch (err) {
         console.log(err.message)
     }
 }
 
-export const searchUsersApi = async(input) =>{
-    try{
-        const res = await axios.get(serverUrl + `/user/search?query=${input}`, {withCredentials : true})
+export const searchUsersApi = async (input) => {
+    try {
+        const res = await axios.get(serverUrl + `/user/search?query=${input}`, { withCredentials: true })
         return res.data
-    }catch(err){
+    } catch (err) {
         return err.message
+    }
+}
+
+export const deleteAccount = async () => {
+    try {
+        const res = await axios.get(serverUrl + '/user/deleteAccount', { withCredentials: true })
+        return res.data
+    } catch (err) {
+        alert(err.message)
     }
 }
