@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { updateProfile } from '../service/user.api.js'
 import { setUserData } from '../redux/userSlice'
-import DeleteModal from '../components/deleteModal.jsx'
+import DeleteModal from '../components/DeleteModal.jsx'
 
 const Profile = () => {
   let { userData } = useSelector(state => state.user)
