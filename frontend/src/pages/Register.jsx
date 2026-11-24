@@ -43,7 +43,7 @@ const Register = () => {
           {/* username */}
           <div className='w-full flex flex-col p-[5px]'>
             <span className='text-lg tracking-wide pl-2 text-gray-700'>Username</span>
-            <input required onChange={e => {
+            <input autoComplete='off' required onChange={e => {
               setUsername(e.target.value)
             }} id='username' value={username} type="text" className='w-full px-5 py-3 text-xl rounded-xl border-[1px] outline-blue-400 border-gray-300' placeholder='Enter username...' />
           </div>
@@ -51,7 +51,7 @@ const Register = () => {
           {/* email */}
           <div className='w-full flex flex-col p-[5px]'>
             <span className='text-lg tracking-wide pl-2 text-gray-700'>Email</span>
-            <input required onChange={e => {
+            <input autoComplete='nope' required onChange={e => {
               setEmail(e.target.value)
             }} id='email' value={email} type="email" className='w-full px-5 py-3 text-xl rounded-xl border-[1px] outline-blue-400 border-gray-300' placeholder='Enter your email...' />
           </div>

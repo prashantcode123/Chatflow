@@ -51,6 +51,7 @@ const Login = () => {
           <div className='w-full flex flex-col p-[5px]'>
             <label htmlFor="" className='text-lg tracking-wide pl-2'>Email</label>
             <input required
+              autoComplete='nope'
               onChange={(e) => { setEmail(e.target.value) }} value={email}
               type="email" className='w-full px-5 py-3 text-lg rounded-xl border-[1px] outline-blue-400 border-gray-300' placeholder='Enter your email...' />
           </div>
