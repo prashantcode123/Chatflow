@@ -126,7 +126,7 @@ const Sidebar = () => {
             </div>
 
             {/* Users List */}
-            <div className='w-full overflow-y-auto h-[70%] md:h-[68%] p-4 mt-4 flex flex-col gap-5'>
+            <div className={`w-full overflow-y-auto h-[calc(100vh-11rem)] p-4 pt-4 flex flex-col gap-5`}>
                 {otherUsers?.map((user, idx) => {
                     return (
                         <div

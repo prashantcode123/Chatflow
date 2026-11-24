@@ -12,7 +12,7 @@ const getCurrentUser = () => {
         dispatch(setUserData(data))
       }
       fetchUser()
-    }, [])
+    }, [userData, dispatch])
     
  }
 

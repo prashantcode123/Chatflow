@@ -57,7 +57,7 @@ const Profile = () => {
             onClick={(e) => { image.current.click() }}
             className='w-[170px] h-[170px] overflow-hidden border-4 border-blue-500 shadow-2xl rounded-[50%]'>
             <img src={frontendImage} className='h-full w-full object-cover' />
-            <Camera className='absolute right-[35%] top-[25%] bg-gray-200 rounded-[50%] cursor-pointer w-[35px] h-[35px] p-1 text-gray-800' />
+            <Camera className='absolute right-[28%] md:right-[35%] top-[25%] bg-gray-200 rounded-[50%] cursor-pointer w-[35px] h-[35px] p-1 text-gray-800' />
           </div>
 
           <div className='mt-[2rem] w-full p-[1rem] md:p-[2rem] flex flex-col gap-[2rem]'>
