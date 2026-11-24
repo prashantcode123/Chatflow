@@ -13,7 +13,9 @@ import { useSocket } from '../App'
 
 const MessageArea = () => {
 
-  let { selectedUser, userData, socket } = useSelector(state => state.user)
+  const socket = useSocket()
+
+  let { selectedUser, userData } = useSelector(state => state.user)
   let { messages } = useSelector(state => state.message)
   let dispatch = useDispatch()
   const [showEmojiPicker, setShowEmojiPicker] = useState(false)
@@ -56,7 +58,7 @@ const MessageArea = () => {
     setBackendImage(null);
 };
 
-  useEffect(() => {
+ useEffect(() => {
     if (!socket) return;
 
     const handleNewMessage = (mess) => {
